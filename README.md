@@ -1,17 +1,17 @@
-# FitLife AI
+# FitFilter AI
 
-Premium dark-mode hackathon demo for an AI fitness startup product.
+Demo hackathon premium in dark mode per un prodotto AI dedicato al fitness.
 
-## Features
+## Funzionalita
 
-- Modern landing page
-- Reel/TikTok-style fitness analyzer
-- Personalized workout plan generator
-- Daily recovery and check-in system
-- Friends leaderboard and streaks
-- Rewards and badge page
-- Mock data only, no backend
-- Non-medical disclaimer
+- Landing page moderna
+- Analisi per reel e clip in stile TikTok
+- Generatore di piani di allenamento personalizzati
+- Check-in giornaliero per recupero e prontezza
+- Classifica amici e serie
+- Ricompense e badge
+- Solo dati simulati, nessun backend
+- Disclaimer non medico
 
 ## Commands
 
@@ -21,4 +21,4 @@ npm run build
 npm run lint
 ```
 
-The app uses Next.js App Router, TypeScript, and Tailwind CSS.
+L'app usa Next.js App Router, TypeScript e Tailwind CSS.

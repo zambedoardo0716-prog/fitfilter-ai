@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "FitLife AI",
-  description: "AI-powered fitness insights, planning, recovery, and rewards.",
+  title: "FitFilter AI",
+  description: "Trasforma contenuti fitness virali in piani realistici, personalizzati e sostenibili.",
 };
 
 export default function RootLayout({

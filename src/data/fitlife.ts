@@ -1,61 +1,61 @@
 export const navItems = [
-  { label: "Analyzer", href: "/analyzer" },
-  { label: "Plan", href: "/plan" },
+  { label: "Analisi", href: "/analyzer" },
+  { label: "Piano", href: "/plan" },
   { label: "Check-in", href: "/check-in" },
-  { label: "Leaderboard", href: "/leaderboard" },
-  { label: "Rewards", href: "/rewards" },
+  { label: "Classifica", href: "/leaderboard" },
+  { label: "Ricompense", href: "/rewards" },
 ];
 
 export const analyzerMetrics = [
-  { label: "Form score", value: "91", detail: "hip drive and tempo look sharp" },
-  { label: "Power", value: "84", detail: "strong final rep acceleration" },
-  { label: "Control", value: "78", detail: "knees drift inward under fatigue" },
+  { label: "Qualità tecnica", value: "91", detail: "spinta d'anca e ritmo sono molto solidi" },
+  { label: "Potenza", value: "84", detail: "buona accelerazione nelle ultime ripetizioni" },
+  { label: "Controllo", value: "78", detail: "le ginocchia cedono leggermente sotto fatica" },
 ];
 
 export const workouts = [
   {
-    day: "Mon",
-    title: "Lower strength",
-    blocks: ["Back squat 5x5", "Romanian deadlift 4x8", "Core finisher"],
-    intensity: "Heavy",
+    day: "Lun",
+    title: "Forza gambe",
+    blocks: ["Squat 5x5", "Stacco rumeno 4x8", "Chiusura core"],
+    intensity: "Pesante",
   },
   {
-    day: "Tue",
-    title: "Zone 2 engine",
-    blocks: ["35 min bike", "Breath cadence", "Mobility reset"],
+    day: "Mar",
+    title: "Base aerobica",
+    blocks: ["35 min bici", "Ritmo respiratorio", "Mobilità di scarico"],
     intensity: "Base",
   },
   {
-    day: "Wed",
-    title: "Upper hypertrophy",
-    blocks: ["Incline press 4x10", "Pull-ups 5 sets", "Shoulder stability"],
-    intensity: "Moderate",
+    day: "Mer",
+    title: "Parte alta ipertrofia",
+    blocks: ["Panca inclinata 4x10", "Trazioni 5 serie", "Stabilità spalle"],
+    intensity: "Moderata",
   },
   {
-    day: "Fri",
-    title: "Athletic power",
-    blocks: ["Pogo jumps", "Kettlebell swings", "Sprint intervals"],
-    intensity: "Explosive",
+    day: "Ven",
+    title: "Potenza atletica",
+    blocks: ["Pogo jump", "Kettlebell swing", "Sprint a intervalli"],
+    intensity: "Esplosiva",
   },
 ];
 
 export const checkInSignals = [
-  { label: "Sleep", value: "7h 42m", score: 86 },
-  { label: "Soreness", value: "Low", score: 72 },
-  { label: "Mood", value: "Locked in", score: 91 },
-  { label: "Hydration", value: "2.4L", score: 80 },
+  { label: "Sonno", value: "7h 42m", score: 86 },
+  { label: "Indolenzimento", value: "Basso", score: 72 },
+  { label: "Energia", value: "A fuoco", score: 91 },
+  { label: "Idratazione", value: "2.4L", score: 80 },
 ];
 
 export const friends = [
   { name: "Maya", streak: 19, xp: 8420, trend: "+2" },
   { name: "Leo", streak: 17, xp: 8180, trend: "+1" },
-  { name: "You", streak: 14, xp: 7960, trend: "+3" },
+  { name: "Tu", streak: 14, xp: 7960, trend: "+3" },
   { name: "Nora", streak: 12, xp: 7440, trend: "-1" },
   { name: "Sam", streak: 10, xp: 7210, trend: "+4" },
 ];
 
 export const rewards = [
-  { title: "Recovery drop", cost: "1,200 XP", status: "Unlocked", accent: "Mint" },
-  { title: "Partner class pass", cost: "2,000 XP", status: "62% ready", accent: "Sky" },
-  { title: "Founders hoodie", cost: "4,500 XP", status: "Invite only", accent: "Volt" },
+  { title: "Kit recupero", cost: "1,200 XP", status: "Sbloccato", accent: "Menta" },
+  { title: "Pass lezione partner", cost: "2,000 XP", status: "62% completato", accent: "Cielo" },
+  { title: "Felpa founder", cost: "4,500 XP", status: "Solo su invito", accent: "Volt" },
 ];

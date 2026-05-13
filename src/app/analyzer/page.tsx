@@ -3,11 +3,11 @@
 import { useMemo, useState } from "react";
 import { AppShell, SectionHeader } from "@/components/app-shell";
 
-const levels = ["Beginner", "Intermediate", "Advanced"];
-const goals = ["Build strength", "Lose fat", "Improve athleticism", "Gain muscle"];
-const frequencies = ["2-3 days/week", "4 days/week", "5+ days/week"];
-const limitationOptions = ["None", "Knee sensitivity", "Lower back tightness", "Shoulder limitation"];
-const loadingSteps = ["Reading reel frames", "Mapping movement path", "Matching your training context", "Building coaching cues"];
+const levels = ["Principiante", "Intermedio", "Avanzato"];
+const goals = ["Aumentare forza", "Dimagrire", "Migliorare atletismo", "Mettere massa"];
+const frequencies = ["2-3 giorni/settimana", "4 giorni/settimana", "5+ giorni/settimana"];
+const limitationOptions = ["Nessuna", "Ginocchia sensibili", "Schiena rigida", "Limitazione alle spalle"];
+const loadingSteps = ["Leggo i frame del reel", "Traccio la traiettoria", "Incrocio il tuo contesto", "Creo indicazioni personalizzate"];
 
 type FlowState = "onboarding" | "loading" | "results";
 
@@ -18,15 +18,15 @@ export default function AnalyzerPage() {
   const [frequency, setFrequency] = useState(frequencies[1]);
   const [limitations, setLimitations] = useState(limitationOptions[0]);
   const [reelUrl, setReelUrl] = useState("");
-  const [clipLabel, setClipLabel] = useState("No file selected");
+  const [clipLabel, setClipLabel] = useState("Nessun file selezionato");
 
   const analysis = useMemo(() => {
-    const levelOffset = level === "Advanced" ? 4 : level === "Beginner" ? -3 : 0;
-    const limitationOffset = limitations === "None" ? 3 : -4;
-    const frequencyOffset = frequency === "5+ days/week" ? 2 : frequency === "2-3 days/week" ? -1 : 0;
+    const levelOffset = level === "Avanzato" ? 4 : level === "Principiante" ? -3 : 0;
+    const limitationOffset = limitations === "Nessuna" ? 3 : -4;
+    const frequencyOffset = frequency === "5+ giorni/settimana" ? 2 : frequency === "2-3 giorni/settimana" ? -1 : 0;
     const form = 86 + levelOffset + limitationOffset;
-    const power = 80 + frequencyOffset + (goal === "Improve athleticism" ? 5 : 0);
-    const control = 78 + limitationOffset + (level === "Beginner" ? 2 : 0);
+    const power = 80 + frequencyOffset + (goal === "Migliorare atletismo" ? 5 : 0);
+    const control = 78 + limitationOffset + (level === "Principiante" ? 2 : 0);
     const readiness = Math.round((form + power + control) / 3);
 
     return {
@@ -35,25 +35,25 @@ export default function AnalyzerPage() {
       control,
       readiness,
       headline:
-        limitations === "None"
-          ? `${level} ${goal.toLowerCase()} profile with strong training capacity.`
-          : `${level} ${goal.toLowerCase()} profile with ${limitations.toLowerCase()} safeguards.`,
+        limitations === "Nessuna"
+          ? `Profilo ${level.toLowerCase()} orientato a ${goal.toLowerCase()}, con buona capacità di lavoro.`
+          : `Profilo ${level.toLowerCase()} orientato a ${goal.toLowerCase()}, con attenzione a ${limitations.toLowerCase()}.`,
       cue:
-        limitations === "Knee sensitivity"
-          ? "Keep shins quieter on the eccentric and use a slightly slower tempo before adding load."
-          : limitations === "Lower back tightness"
-            ? "Brace before the descent and shorten range when fatigue changes your torso angle."
-            : limitations === "Shoulder limitation"
-              ? "Keep pressing volume moderate and bias neutral-grip accessories this week."
-              : "Your rep rhythm is clean enough to progress, but the final third still needs control.",
+        limitations === "Ginocchia sensibili"
+          ? "Mantieni le tibie più stabili in discesa e rallenta leggermente il ritmo prima di aumentare il carico."
+          : limitations === "Schiena rigida"
+            ? "Attiva il core prima della discesa e riduci il range quando la fatica cambia l'inclinazione del busto."
+            : limitations === "Limitazione alle spalle"
+              ? "Tieni moderato il volume di spinta e preferisci accessori con presa neutra questa settimana."
+              : "Il ritmo delle ripetizioni è pulito: puoi progredire, ma l'ultima parte del set richiede più controllo.",
       prescription:
-        goal === "Lose fat"
-          ? "Pair this with short conditioning finishers after strength work."
-          : goal === "Gain muscle"
-            ? "Use controlled eccentrics and add one back-off set for hypertrophy."
-            : goal === "Improve athleticism"
-              ? "Add low-volume plyometrics before heavy lifts while freshness is high."
-              : "Progress load slowly and keep the top set at one rep in reserve.",
+        goal === "Dimagrire"
+          ? "Abbina il lavoro di forza a finisher brevi di conditioning, senza trasformare ogni seduta in massacro."
+          : goal === "Mettere massa"
+            ? "Usa eccentriche controllate e aggiungi un back-off set per stimolare ipertrofia."
+            : goal === "Migliorare atletismo"
+              ? "Inserisci pliometria a basso volume prima dei carichi pesanti, quando sei ancora fresco."
+              : "Aumenta il carico con gradualità e tieni il set principale con una ripetizione di margine.",
     };
   }, [frequency, goal, level, limitations]);
 
@@ -66,28 +66,28 @@ export default function AnalyzerPage() {
     <AppShell>
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="Reel analyzer"
-          title="Personalized AI form analysis in seconds."
-          body="A premium mock flow that captures training context, accepts a reel link or upload, then generates a futuristic local-only report."
+          eyebrow="Analizza il reel"
+          title="Analisi AI personalizzata, senza complicazioni."
+          body="Un percorso premium che raccoglie il tuo contesto, accetta un link o un caricamento simulato e genera un report locale chiaro, realistico e utile."
         />
 
         <div className="mt-10 grid gap-6 lg:grid-cols-[390px_1fr]">
           <aside className="glass h-fit rounded-[2rem] p-5">
             <div className="flex items-center justify-between">
-              <p className="text-sm font-bold uppercase tracking-[0.22em] text-emerald-300">Analyzer flow</p>
+              <p className="text-sm font-bold uppercase tracking-[0.22em] text-emerald-300">Percorso analisi</p>
               <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-bold text-white/60">
-                {flow === "onboarding" ? "01 setup" : flow === "loading" ? "02 scan" : "03 report"}
+                {flow === "onboarding" ? "01 dati" : flow === "loading" ? "02 scansione" : "03 report"}
               </span>
             </div>
             <div className="mt-6 space-y-3">
-              <Step active={flow === "onboarding"} done={flow !== "onboarding"} label="Profile and reel" />
-              <Step active={flow === "loading"} done={flow === "results"} label="AI movement scan" />
-              <Step active={flow === "results"} done={false} label="Personalized report" />
+              <Step active={flow === "onboarding"} done={flow !== "onboarding"} label="Profilo e reel" />
+              <Step active={flow === "loading"} done={flow === "results"} label="Scansione movimento AI" />
+              <Step active={flow === "results"} done={false} label="Report personalizzato" />
             </div>
             <div className="mt-6 rounded-3xl border border-emerald-300/20 bg-emerald-300/10 p-5">
-              <p className="text-sm font-bold text-emerald-100">Local demo mode</p>
+              <p className="text-sm font-bold text-emerald-100">Demo locale</p>
               <p className="mt-2 text-sm leading-6 text-white/56">
-                No backend, auth, or real upload processing. All answers are generated from local mock state.
+                Nessun backend, login o caricamento reale. Le risposte nascono solo da dati simulati in locale.
               </p>
             </div>
           </aside>
@@ -96,28 +96,28 @@ export default function AnalyzerPage() {
             <div className="grid gap-6 xl:grid-cols-[1fr_360px]">
               <div className="glass rounded-[2rem] p-5 sm:p-6">
                 <div className="grid gap-6">
-                  <OptionGroup label="Fitness level" value={level} options={levels} onChange={setLevel} />
-                  <OptionGroup label="Training goal" value={goal} options={goals} onChange={setGoal} />
-                  <OptionGroup label="Training frequency" value={frequency} options={frequencies} onChange={setFrequency} />
-                  <OptionGroup label="Injuries or limitations" value={limitations} options={limitationOptions} onChange={setLimitations} />
+                  <OptionGroup label="Livello fitness" value={level} options={levels} onChange={setLevel} />
+                  <OptionGroup label="Obiettivo" value={goal} options={goals} onChange={setGoal} />
+                  <OptionGroup label="Frequenza di allenamento" value={frequency} options={frequencies} onChange={setFrequency} />
+                  <OptionGroup label="Fastidi o limitazioni" value={limitations} options={limitationOptions} onChange={setLimitations} />
                 </div>
               </div>
 
               <div className="glass rounded-[2rem] p-5 sm:p-6">
-                <p className="text-sm font-bold uppercase tracking-[0.22em] text-emerald-300">Reel source</p>
+                <p className="text-sm font-bold uppercase tracking-[0.22em] text-emerald-300">Sorgente reel</p>
                 <label className="mt-5 block text-sm font-bold text-white/70" htmlFor="reel-url">
-                  Reel or TikTok URL
+                  Link Reel o TikTok
                 </label>
                 <input
                   id="reel-url"
                   value={reelUrl}
                   onChange={(event) => setReelUrl(event.target.value)}
-                  placeholder="https://tiktok.com/@fitlife/reel"
+                  placeholder="https://tiktok.com/@fitfilter/reel"
                   className="mt-3 w-full rounded-2xl border border-white/12 bg-white/8 px-4 py-4 text-sm text-white outline-none transition placeholder:text-white/32 focus:border-emerald-300/70"
                 />
                 <div className="my-5 flex items-center gap-3 text-xs font-bold uppercase tracking-[0.18em] text-white/36">
                   <span className="h-px flex-1 bg-white/10" />
-                  or
+                  oppure
                   <span className="h-px flex-1 bg-white/10" />
                 </div>
                 <label className="flex min-h-40 cursor-pointer flex-col items-center justify-center rounded-3xl border border-dashed border-white/18 bg-white/6 p-5 text-center transition hover:border-emerald-300/50 hover:bg-emerald-300/8">
@@ -125,17 +125,17 @@ export default function AnalyzerPage() {
                     type="file"
                     accept="video/*"
                     className="sr-only"
-                    onChange={(event) => setClipLabel(event.target.files?.[0]?.name ?? "No file selected")}
+                    onChange={(event) => setClipLabel(event.target.files?.[0]?.name ?? "Nessun file selezionato")}
                   />
                   <span className="text-4xl font-black text-emerald-200">+</span>
-                  <span className="mt-3 text-sm font-bold text-white">Upload demo clip</span>
+                  <span className="mt-3 text-sm font-bold text-white">Carica una clip demo</span>
                   <span className="mt-2 max-w-52 text-xs leading-5 text-white/44">{clipLabel}</span>
                 </label>
                 <button
                   onClick={runAnalysis}
                   className="mt-5 w-full rounded-2xl bg-emerald-300 px-5 py-4 text-sm font-black text-slate-950 transition hover:bg-emerald-200"
                 >
-                  Generate AI analysis
+                  Genera analisi AI
                 </button>
               </div>
             </div>
@@ -151,24 +151,24 @@ export default function AnalyzerPage() {
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_42%_18%,rgba(42,245,177,.28),transparent_18rem),linear-gradient(145deg,rgba(37,99,235,.45),transparent_60%)]" />
                     <div className="relative flex h-full flex-col justify-between rounded-[1.5rem] border border-white/12 bg-black/24 p-5">
                       <div className="flex items-center justify-between">
-                        <span className="rounded-full bg-emerald-300 px-3 py-1 text-xs font-black text-slate-950">AI REPORT</span>
-                        <span className="text-xs text-white/54">{reelUrl ? "URL analyzed" : clipLabel}</span>
+                        <span className="rounded-full bg-emerald-300 px-3 py-1 text-xs font-black text-slate-950">REPORT AI</span>
+                        <span className="text-xs text-white/54">{reelUrl ? "Link analizzato" : clipLabel}</span>
                       </div>
                       <div>
                         <p className="text-7xl font-black">{analysis.readiness}</p>
-                        <p className="mt-2 text-sm font-bold uppercase tracking-[0.18em] text-emerald-200">fit score</p>
+                        <p className="mt-2 text-sm font-bold uppercase tracking-[0.18em] text-emerald-200">punteggio fit</p>
                       </div>
                     </div>
                   </div>
                   <div className="p-5 sm:p-7">
-                    <p className="text-sm font-bold uppercase tracking-[0.22em] text-emerald-300">Personalized insight</p>
+                    <p className="text-sm font-bold uppercase tracking-[0.22em] text-emerald-300">Insight personalizzato</p>
                     <h2 className="mt-4 text-3xl font-black text-white sm:text-4xl">{analysis.headline}</h2>
                     <p className="mt-5 text-base leading-8 text-white/62">{analysis.cue}</p>
                     <p className="mt-4 text-base leading-8 text-white/62">{analysis.prescription}</p>
                     <div className="mt-7 grid gap-3 sm:grid-cols-3">
-                      <Score label="Form" value={analysis.form} />
-                      <Score label="Power" value={analysis.power} />
-                      <Score label="Control" value={analysis.control} />
+                      <Score label="Tecnica" value={analysis.form} />
+                      <Score label="Potenza" value={analysis.power} />
+                      <Score label="Controllo" value={analysis.control} />
                     </div>
                   </div>
                 </div>
@@ -176,13 +176,13 @@ export default function AnalyzerPage() {
 
               <div className="grid gap-4 md:grid-cols-3">
                 {[
-                  `Plan around ${frequency.toLowerCase()}`,
-                  limitations === "None" ? "No limitation flags" : `Protect: ${limitations}`,
-                  `Goal bias: ${goal}`,
+                  `Piano su ${frequency.toLowerCase()}`,
+                  limitations === "Nessuna" ? "Nessun limite segnalato" : `Da proteggere: ${limitations}`,
+                  `Focus: ${goal}`,
                 ].map((item) => (
                   <div key={item} className="glass rounded-[2rem] p-5">
                     <p className="text-sm font-bold text-white/78">{item}</p>
-                    <p className="mt-3 text-sm leading-6 text-white/48">Mock recommendation generated locally from your setup answers.</p>
+                    <p className="mt-3 text-sm leading-6 text-white/48">Raccomandazione simulata e generata in locale dalle tue risposte.</p>
                   </div>
                 ))}
               </div>
@@ -192,18 +192,18 @@ export default function AnalyzerPage() {
                   onClick={() => setFlow("onboarding")}
                   className="rounded-2xl border border-white/14 px-5 py-4 text-sm font-bold text-white transition hover:bg-white/8"
                 >
-                  Edit inputs
+                  Modifica dati
                 </button>
                 <button
                   onClick={runAnalysis}
                   className="rounded-2xl bg-white px-5 py-4 text-sm font-black text-slate-950 transition hover:bg-emerald-200"
                 >
-                  Re-run mock AI scan
+                  Rifai la scansione AI
                 </button>
               </div>
 
               <p className="text-xs leading-5 text-white/42">
-                Non-medical demo feedback. Stop if you feel pain and consult a qualified professional for health concerns.
+                Feedback demo non medico. Se senti dolore, fermati e consulta un professionista qualificato.
               </p>
             </div>
           )}
@@ -271,8 +271,8 @@ function LoadingPanel() {
           <div className="absolute inset-5 animate-pulse rounded-full border border-white/18 bg-white/8" />
           <div className="absolute inset-12 rounded-full bg-emerald-300 shadow-2xl shadow-emerald-300/30" />
         </div>
-        <p className="mt-8 text-sm font-bold uppercase tracking-[0.28em] text-emerald-300">FitLife AI is analyzing</p>
-        <h2 className="mt-4 max-w-2xl text-4xl font-black tracking-tight">Building your personalized movement report.</h2>
+        <p className="mt-8 text-sm font-bold uppercase tracking-[0.28em] text-emerald-300">FitFilter AI sta analizzando</p>
+        <h2 className="mt-4 max-w-2xl text-4xl font-black tracking-tight">Sto preparando il tuo report personalizzato sul movimento.</h2>
         <div className="mt-8 grid w-full max-w-2xl gap-3 sm:grid-cols-2">
           {loadingSteps.map((step) => (
             <div key={step} className="rounded-2xl border border-white/10 bg-white/7 p-4 text-sm font-bold text-white/70">

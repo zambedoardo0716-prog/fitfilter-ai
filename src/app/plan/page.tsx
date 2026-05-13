@@ -4,8 +4,8 @@ import { useState } from "react";
 import { AppShell, SectionHeader } from "@/components/app-shell";
 import { workouts } from "@/data/fitlife";
 
-const goals = ["Build strength", "Lean muscle", "Hybrid athlete"];
-const levels = ["Beginner", "Intermediate", "Advanced"];
+const goals = ["Aumentare forza", "Massa magra", "Atleta ibrido"];
+const levels = ["Principiante", "Intermedio", "Avanzato"];
 
 export default function PlanPage() {
   const [goal, setGoal] = useState(goals[0]);
@@ -15,21 +15,21 @@ export default function PlanPage() {
     <AppShell>
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="Workout plan generator"
-          title="A training week that feels built for you."
-          body="Choose a goal and level to generate a polished mock plan with strength, conditioning, recovery, and progression notes."
+          eyebrow="Generatore piano"
+          title="Una settimana di allenamento che sembra fatta per te."
+          body="Scegli obiettivo e livello per creare una scheda simulata con forza, condizionamento, recupero e progressione sostenibile."
         />
         <div className="mt-12 grid gap-6 lg:grid-cols-[360px_1fr]">
           <aside className="glass h-fit rounded-[2rem] p-6">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-300">Inputs</p>
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-300">Dati</p>
             <div className="mt-6 space-y-6">
-              <Selector label="Goal" value={goal} options={goals} onChange={setGoal} />
-              <Selector label="Level" value={level} options={levels} onChange={setLevel} />
+              <Selector label="Obiettivo" value={goal} options={goals} onChange={setGoal} />
+              <Selector label="Livello" value={level} options={levels} onChange={setLevel} />
             </div>
             <div className="mt-6 rounded-3xl bg-emerald-300 p-5 text-slate-950">
-              <p className="text-sm font-bold">Generated focus</p>
+              <p className="text-sm font-bold">Focus generato</p>
               <p className="mt-2 text-2xl font-black">{goal}</p>
-              <p className="mt-2 text-sm font-semibold">Progression tuned for {level.toLowerCase()} training age.</p>
+              <p className="mt-2 text-sm font-semibold">Progressione tarata su un profilo {level.toLowerCase()}.</p>
             </div>
           </aside>
           <div className="grid gap-4 md:grid-cols-2">

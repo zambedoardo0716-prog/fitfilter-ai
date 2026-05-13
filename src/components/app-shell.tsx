@@ -11,8 +11,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
               F
             </span>
             <span>
-              <span className="block text-base font-bold tracking-tight">FitLife AI</span>
-              <span className="block text-xs text-white/48">fitness intelligence</span>
+              <span className="block text-base font-bold tracking-tight">FitFilter AI</span>
+              <span className="block text-xs text-white/48">Coach fitness AI</span>
             </span>
           </Link>
           <div className="hidden items-center gap-1 md:flex">
@@ -30,13 +30,13 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             href="/analyzer"
             className="rounded-full bg-white px-4 py-2 text-sm font-bold text-slate-950 transition hover:bg-emerald-200"
           >
-            Analyze reel
+            Analizza il reel
           </Link>
         </nav>
       </header>
       <main>{children}</main>
       <footer className="border-t border-white/10 px-4 py-8 text-center text-sm text-white/46">
-        FitLife AI is a non-medical demo. It does not diagnose, treat, or replace advice from qualified health professionals.
+        FitFilter AI è una demo non medica: non fa diagnosi, non cura e non sostituisce il parere di professionisti qualificati.
       </footer>
     </div>
   );
@@ -84,19 +84,19 @@ export function PhonePreview() {
       <div className="relative min-h-[520px] overflow-hidden rounded-[2rem] bg-[#101621]">
         <div className="absolute inset-0 bg-[linear-gradient(150deg,rgba(42,245,177,.3),transparent_42%),linear-gradient(20deg,rgba(96,165,250,.25),transparent_38%)]" />
         <div className="absolute inset-x-5 top-5 flex items-center justify-between text-xs text-white/70">
-          <span>FitLife Reel</span>
-          <span className="rounded-full bg-emerald-300 px-2 py-1 font-bold text-slate-950">LIVE AI</span>
+          <span>Reel FitFilter</span>
+          <span className="rounded-full bg-emerald-300 px-2 py-1 font-bold text-slate-950">AI attiva</span>
         </div>
         <div className="absolute left-5 right-5 top-24 rounded-3xl border border-white/12 bg-black/32 p-4">
           <div className="h-56 rounded-2xl bg-[linear-gradient(135deg,#202b3b,#111827_55%,#1d4ed8)]">
             <div className="flex h-full items-end p-4">
               <div className="w-full rounded-2xl bg-black/42 p-3 text-sm text-white">
-                Squat depth detected: 94%
+                Profondità squat rilevata: 94%
               </div>
             </div>
           </div>
           <div className="mt-4 grid grid-cols-3 gap-2">
-            {["Tempo", "Knee path", "Depth"].map((item) => (
+            {["Ritmo", "Ginocchia", "Profondità"].map((item) => (
               <div key={item} className="rounded-2xl bg-white/8 p-3 text-center text-xs text-white/70">
                 {item}
               </div>
@@ -104,8 +104,8 @@ export function PhonePreview() {
           </div>
         </div>
         <div className="absolute inset-x-5 bottom-5 rounded-3xl bg-white p-4 text-slate-950">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700">Next best action</p>
-          <p className="mt-2 text-lg font-black">Add ankle mobility before heavy sets.</p>
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-emerald-700">Prossima azione</p>
+          <p className="mt-2 text-lg font-black">Aggiungi mobilità caviglie prima dei set pesanti.</p>
         </div>
       </div>
     </div>
